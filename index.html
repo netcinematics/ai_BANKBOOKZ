@@ -1735,6 +1735,33 @@ border-radius:13px;
          }
       }
 
+      /* Target Pixel based on user-agent */
+      @media only screen and (
+         (-webkit-user-agent: contains('Pixel')) or
+         (-webkit-user-agent: contains('iPhone')) or
+         (-webkit-user-agent: contains('Samsung'))
+      ) {
+         
+          body{ font-size: 3rem; padding-top: 0.555em; background-color:red;} 
+         /*#scrollFrame{width: 100%; }  
+         #topMenu{margin-top: 0.333em;}
+         .btnTXT{font-size:0.999em;}
+         .subMenuBtn{font-size:0.777em;}
+         #messageBOX{flex-direction: column;}
+         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX,
+         #padSequenceBOX, #reviewPreviewBOX, #allMarginsBOX{
+            margin:2% 0;
+         }   */
+      }
+
+      @media only screen and (-webkit-user-agent: contains('Pixel 7')) {
+  html {
+    font-size: 3rem; /* Set big font size for Pixel 7 */
+   }
+   body{background-color:blue;}
+}
+
+
      </style>
      <aside class="topLeftBtn1">
       <span class="icon1" style="border-radius:100%;background:steelblue; 
@@ -1749,7 +1776,7 @@ border-radius:13px;
          <span class="icon1" style="border-radius:100%;background:crimson; 
          border:2px solid grey;">🎢</span>
          </aside>      
-      <header style="display:flex;justify-content:space-evenly; flex: 0 0 auto;
+      <header id="topMenu" style="display:flex;justify-content:space-evenly; flex: 0 0 auto;
         background-image: linear-gradient(grey, steelblue, black);
         box-shadow:0 0 14px 0px steelblue;border-radius:13px; margin:0 auto;
         width:93%;    flex-wrap: wrap;">
@@ -1820,7 +1847,7 @@ border-radius:13px;
          <section id="rightBOX" style="display:flex;  justify-content: center;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            <span style="text-align: center;">and generative data visualization of gains.</span>
+            <span style="text-align: center;">and generative data visualization.</span>
             <span class="smICON">&nbsp;❇</span>
          </section>
       
