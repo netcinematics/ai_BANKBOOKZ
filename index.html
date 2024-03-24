@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <title>ai_NETBANKBOOKZ</title>
+   <title>ai_BANKBOOKZ</title>
    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
    <body style="display:flex;flex-direction: column;">
 <style>/* PC */
-hr{border-top: solid 1px cadetblue;
+hr{border-top: solid 1px steelblue;
    border-bottom: none;}
    html, body { height: 100%; width:100%; background:black; margin:0}
    body{padding-top:1em;display:flex;flex-direction:column;overflow:hidden;
@@ -289,7 +289,8 @@ hr{border-top: solid 1px cadetblue;
 }
 .expandCollapseBtn1{
    border-radius:13px;background:#d1d67b;
-   cursor:pointer; margin:1em 0 1em 0;
+   cursor:pointer; 
+   /* margin:1em 0 1em 0; */
    font-size: 0.777em;
    background: cadetblue;
    border-radius: 13px;
@@ -1704,6 +1705,18 @@ border-radius:13px;
    font-size: 0.555em;
 }
 
+/* Module Menu BTN Logic */
+.hide_QuickBtns{ display:none; }
+.show_QuickBtns{ display:flex; } /*needed for toggle lookup*/
+.hide_AssetzBtns{ display:none; }
+.show_AssetzBtns{ display:flex; }
+.hide_TradezBtns{ display:none; }
+.show_TradezBtns{ display:flex; }
+.hide_EventzBtns{ display:none; }
+.show_EventzBtns{ display:flex; }
+.hide_StoryzBtns{ display:none; }
+.show_StoryzBtns{ display:flex; }
+/* END Module Menu BTN Logic */
 
 /* .redTXT{color:#a43d3d!important;}
 .greenTXT{color:#3db63f !important;} */
@@ -1743,7 +1756,7 @@ border-radius:13px;
       border:2px solid grey;">🎪</span><span class="txt1">home</span>
       </aside>
       <aside style="font-size: 1em;color: steelblue;margin: -13px 0 14px 0;text-shadow: 0px -1px 5px #66aef3;">
-        NET_BANK_BOOKZ</aside>
+        ai_BANK_BOOKZ</aside>
       <aside style="font-size: 0.777em;color: steelblue;margin: -10px 0 4px 0;">
       </aside>
       <aside class="topRightBtn2">
@@ -1816,13 +1829,13 @@ border-radius:13px;
          <section id="midBOX" style="display:flex;  justify-content: center; font-size:0.777em;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            <span style="text-align: center;">for metadata transform of finance,</span>
+            <span style="text-align: center;">to transform finance metadata,</span>
             <span class="smICON">&nbsp;❇</span>
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            <span style="text-align: center;">and generative visualization.</span>
+            <span style="text-align: center;">and generate visualization.</span>
             <span class="smICON">&nbsp;❇</span>
          </section>
       
@@ -1851,11 +1864,11 @@ align-items: center;">
            <hr>   
            <section id="generatedQuickBOX"></section>
            <hr>   
-           <button class="delBtn1"  style="float:right;margin-top:0.888em;margin-right:4%;"  
+           <button class="delBtn1 hide_QuickBtns"  style="float:right;margin-top:0.888em;margin-right:4%;"  
            onclick="deleteSelectedQuick(event)">🗑️</button> 
-           <button id="copyQuickBtn" class="addBtn1" style="background: #7b97d6;margin-top: 0.888em;margin-right: 1%;" onclick="copyQuickQrtrClick()">
+           <button id="copyQuickBtn" class="addBtn1 hide_QuickBtns" style="background: #7b97d6;margin-top: 0.888em;margin-right: 1%;" onclick="copyQuickQrtrClick()">
             copyFwd👻</button>
-           <button id="addQuickBtn" class="addBtn1" style="margin-top: 0.888em;margin-right: 1%;" onclick="addQuickSectionClick()">
+           <button id="addQuickBtn" class="addBtn1 hide_QuickBtns" style="margin-top: 0.888em;margin-right: 1%;" onclick="addQuickSectionClick()">
             blankMonth🌷</button>
            <button id="saveQuickBtn1" class="yellowBtn1" onclick="saveQuickClick()">save⚓</button>
          </article>
@@ -1873,8 +1886,8 @@ align-items: center;">
          <article id="encodeDATA"></article>
          <hr/>
         <button id="saveTickBtn1" onclick="saveTickerClick()">save🌟</button>
-        <button class="delBtn1" style="float:right;margin-right:4%;" onclick="deleteSelectedTicker()">🗑️</button>
-          <button id="addTickBtn" class="addBtn1" onclick="addTickerClick()">add🎇</button>
+        <button class="delBtn1 hide_AssetzBtns" style="float:right;margin-right:4%;" onclick="deleteSelectedTicker()">🗑️</button>
+          <button id="addTickBtn" class="addBtn1 hide_AssetzBtns" onclick="addTickerClick()">add🎇</button>
          </section>
       <section id="decodeBOX"
          style="width:80.888%; flex:1;background: #0a0014;border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 6px #39029e;
@@ -1888,8 +1901,8 @@ align-items: center;">
          <hr/>
          <aside id="decodeSPOTZ"></aside>
          <hr/>
-        <button class="delBtn1"  style="float:right;margin-right:4%;"  onclick="deleteSelectedSpot()">🗑️</button>
-        <button id="addSpotBtn" class="addBtn1" onclick="addSpotClick()">add🎆</button>
+        <button class="delBtn1 hide_TradezBtns"  style="float:right;margin-right:4%;"  onclick="deleteSelectedSpot()">🗑️</button>
+        <button id="addSpotBtn" class="addBtn1 hide_TradezBtns" onclick="addSpotClick()">add🎆</button>
         <button id="saveSpotBtn1" onclick="saveSpotClick()">save⚓</button>
       </section>
 
@@ -1905,8 +1918,9 @@ align-items: center;">
             <!-- Margins: -->
             <section id="generatedMarginsBOX"></section>
             <hr> 
-            <button id="detailsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">details💎</button> 
-            <button id="totalsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">totals⚙️</button> 
+            <!-- <button id="detailsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">details💎</button>  -->
+            <button id="detailsBtn1" class="genReportBtn1 hide_MarginzBtns" onclick="setMarginDetailsClick(event)">details💎</button> 
+            <button id="totalsBtn1" class="genReportBtn1 hide_MarginzBtns" onclick="setMarginDetailsClick(event)">totals⚙️</button> 
       </section>
       <section id="padSequenceBOX"
          style="width: 80.888%;
@@ -1932,8 +1946,8 @@ align-items: center;">
             <hr> 
             <section id="eventzFRAME"></section>
             <hr> 
-            <button id="evtzDeleteBtn5" class="delBtn2" style="font-size: 1em;" onclick="setEVTZDeleteClick(event)">🗑️</button> 
-            <button id="evtzMilestoneBtn5" class="genReportBtn1" style="font-size: 0.888em;" onclick="addEVTZMilestoneClick(event)">add Milestone🐾</button> 
+            <button id="evtzDeleteBtn5" class="delBtn2 hide_EventzBtns" style="font-size: 1em;" onclick="setEVTZDeleteClick(event)">🗑️</button> 
+            <button id="evtzMilestoneBtn5" class="genReportBtn1 hide_EventzBtns" style="font-size: 0.888em;" onclick="addEVTZMilestoneClick(event)">add Milestone🐾</button> 
             <button id="evtzSaveBtn5" class="genReportBtn1" style="font-size: 0.888em;display:none;" onclick="setEVTZSaveClick(event)">save🤩</button> 
       </section>
       <section id="reviewPreviewBOX"
@@ -1952,8 +1966,8 @@ align-items: center;">
             <hr> 
             <section id="storyzFRAME"></section>
             <hr> 
-            <button id="storyzDeleteBtn6" class="delBtn2" style="font-size: 1em;" onclick="storyzDeleteClick(event)">🗑️</button> 
-            <button id="storyAddStoryzBtn6" class="genReportBtn1" style="font-size: 0.888em;" onclick="addStoryBOXClick(event)">addStoryz🐜🍄</button> 
+            <button id="storyzDeleteBtn6" class="delBtn2 hide_StoryzBtns" style="font-size: 1em;" onclick="storyzDeleteClick(event)">🗑️</button> 
+            <button id="storyAddStoryzBtn6" class="genReportBtn1 hide_StoryzBtns" style="font-size: 0.888em;" onclick="addStoryBOXClick(event)">addStoryz🐜🍄</button> 
       </section>
       <section id="historyBOX"
         style="width:80%;flex:1; background: #14082d; border-radius: 13px; border: solid 1px darkgreen; box-shadow: 0px 7px 20px 0px #029e4a;
@@ -1967,8 +1981,8 @@ align-items: center;">
          <span style="font-size:0.555em">🚦(reportz)🚨</span>
          </span></span><br>
         <article style="font-size:0.777em;">
-         <hr>
-         <h3 style="font-family: monospace;">🚪CloseBookz📗📘📙</h3>
+         <!-- <hr> -->
+         <!-- <h3 style="font-family: monospace;">🚪CloseBookz📗📘📙</h3> -->
          <hr>   
          <section id="generatedMonthTotalsGRID"></section>
          <hr>   
@@ -2686,6 +2700,10 @@ let initEncode = ()=>{
    encodeDATA.innerHTML=''; //blank out reload.
    if(ai_ledger.asset_expanded){
       expandCollapseBtn1.innerHTML = '💨'
+
+      let all_AssetzBtns = document.querySelectorAll('.hide_AssetzBtns'); //showbtns
+      all_AssetzBtns.forEach(el=>{el.classList.remove('hide_AssetzBtns');el.classList.add('show_AssetzBtns');});
+
       for(var i=0; i<ai_ledger.ticks.length;i++){
          if(uniqueMAP[ai_ledger.ticks[i].tick]){continue;}
          encodeRow = document.createElement('article')
@@ -2769,6 +2787,9 @@ const initDecode = ()=>{
    decodeSPOTZ.innerHTML=''; //blank out reload.
    if(ai_ledger.spot_expanded){
       expandCollapseBtn2.innerHTML = '💨'
+      let all_TradezBtns = document.querySelectorAll('.hide_TradezBtns'); //showbtns
+      all_TradezBtns.forEach(el=>{el.classList.remove('hide_TradezBtns');el.classList.add('show_TradezBtns');});
+
       for(var i=0; i<ai_ledger.spots.length;i++){
          decodeRow1 = document.createElement('article')
          decodeRow1.classList.add('decodeRow1')
@@ -3377,9 +3398,9 @@ const deleteSelectedSchedule = (event)=>{ //remove ledger item, save, refresh
       /*****************************************\
        * - ai_BANK functions
       \*****************************************/
-      let ai_BANK = {
-         "Q4_2023_OCT": {trxns:{pads:[],trims:[]}}
-      }
+      // let ai_BANK = {
+      //    "Q4_2023_OCT": {trxns:{pads:[],trims:[]}}
+      // }
 
 //EVENTZ***********************************************
 const addEVTZClick = (evtzID) =>{
@@ -3738,6 +3759,7 @@ const ai_bankbookz_init=()=>{ //READ from LOCAL STORAGE
    }
 }; ai_bankbookz_init();
 
+//DISPLAY: QUICK_MODULE ------------------------------------------------
 const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
    generatedQuickBOX.innerHTML = "" //clear view
    qrtrKeyz = Object.keys(ai_main.qrtrz);//ai_ledger.ticks;
@@ -3745,6 +3767,9 @@ const generateQuickClick = ()=>{ //GENERATE Quick DISPLAY
    if(!qrtrKeyz){ console.log('no data'); return}
    if(ai_ledger.quick_expanded){
       expandCollapseBtn0.innerHTML = '💨'   
+      let all_QuickBtns = document.querySelectorAll('.hide_QuickBtns'); //showbtns
+      all_QuickBtns.forEach(el=>{el.classList.remove('hide_QuickBtns');el.classList.add('show_QuickBtns');});
+
       for(let i=0;i<qrtrKeyz.length;i++){  //BEGIN QUARTERLY LOOP
          QRTR= ai_main.qrtrz[qrtrKeyz[i]];
          quarterBOX = document.createElement('section')
@@ -5279,6 +5304,9 @@ try{
 }     //end save Quick click        
 
 const ExpandCollapseQuickClick = ()=>{
+   let all_QuickBtns = document.querySelectorAll('.show_QuickBtns'); //hidebtns
+   all_QuickBtns.forEach(el=>{el.classList.remove('show_QuickBtns');el.classList.add('hide_QuickBtns');});
+
    ai_ledger.quick_expanded = !ai_ledger.quick_expanded;
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
@@ -5372,7 +5400,7 @@ const setMarginDetailsClick = (e)=>{
    generateMarginsClick();
 }
 
-
+//DISPLAY: MARGINZ_MODULE--------------------------------------------------
 let ai_MetaData_TickMap={}; //todo rename ai_MetaData_TickMap to...
 const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
    let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
@@ -5431,7 +5459,12 @@ const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
    let avgPrice1,detailRow1;
    //DISPLAY - iterator
    if(ai_ledger.margin_expanded){
-      expandCollapseBtn3.innerHTML = '💨'      
+      expandCollapseBtn3.innerHTML = '💨' 
+      
+      let all_MarginzBtns = document.querySelectorAll('.hide_MarginzBtns'); //showbtns
+      all_MarginzBtns.forEach(el=>{el.classList.remove('hide_MarginzBtns');el.classList.add('show_MarginzBtns');});
+      
+
       for(let i=0;i<tickerSet.length;i++){
          ticker= tickerSet[i];
          
@@ -5535,6 +5568,10 @@ generateMarginsClick();
 
 const assetsExpandCollapseClick = ()=>{
    ai_ledger.asset_expanded = !ai_ledger.asset_expanded;
+
+   let all_AssetzBtns = document.querySelectorAll('.show_AssetzBtns'); //hidebtns
+   all_AssetzBtns.forEach(el=>{el.classList.remove('show_AssetzBtns');el.classList.add('hide_AssetzBtns');});
+
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
    initEncode(); //RELOAD VIEW.   
@@ -5542,6 +5579,10 @@ const assetsExpandCollapseClick = ()=>{
 }
 const spotsExpandCollapseClick = ()=>{
    ai_ledger.spot_expanded = !ai_ledger.spot_expanded;
+
+   let all_TradezBtns = document.querySelectorAll('.show_TradezBtns'); //hidebtns
+   all_TradezBtns.forEach(el=>{el.classList.remove('show_TradezBtns');el.classList.add('hide_TradezBtns');});
+   
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
    initDecode(); //RELOAD VIEW.   
@@ -5549,6 +5590,10 @@ const spotsExpandCollapseClick = ()=>{
 }
 const marginsExpandCollapseClick = ()=>{
    ai_ledger.margin_expanded = !ai_ledger.margin_expanded;
+
+   let all_MarginzBtns = document.querySelectorAll('.show_MarginzBtns'); //hidebtns
+   all_MarginzBtns.forEach(el=>{el.classList.remove('show_MarginzBtns');el.classList.add('hide_MarginzBtns');});
+
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
    generateMarginsClick(); //RELOAD VIEW. 
@@ -5563,6 +5608,10 @@ const capsExpandCollapseClick = ()=>{
 }
 const eventzExpandCollapseClick = ()=>{
    ai_ledger.eventz_expanded = !ai_ledger.eventz_expanded;
+
+   let all_EventzBtns = document.querySelectorAll('.show_EventzBtns'); //hidebtns
+   all_EventzBtns.forEach(el=>{el.classList.remove('show_EventzBtns');el.classList.add('hide_EventzBtns');});   
+
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
    generateEVTZClick(); //RELOAD VIEW. 
@@ -5570,6 +5619,10 @@ const eventzExpandCollapseClick = ()=>{
 }
 const storyzExpandCollapseClick = ()=>{
    ai_ledger.storyz_expanded = !ai_ledger.storyz_expanded;
+
+   let all_StoryzBtns = document.querySelectorAll('.show_StoryzBtns'); //hidebtns
+   all_StoryzBtns.forEach(el=>{el.classList.remove('show_StoryzBtns');el.classList.add('hide_StoryzBtns');});
+
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
    generateStoryClick(); //RELOAD VIEW. 
@@ -5606,12 +5659,16 @@ const expandEventzClick = (qID)=>{ //expand or collapse section
    showErrorMSG('🌠 SAVED 🌠');   
 }
 
-
+//DISPLAY: EVENTZ_MODULE----------------------------------
 const generateEVTZClick = ()=>{
    eventzFRAME.innerHTML="";//blank out
    let eventzSet = ai_eventz, eventz;
    if(ai_ledger.eventz_expanded){
       expandCollapseBtn5.innerHTML = '💨'   
+
+      let all_EventzBtns = document.querySelectorAll('.hide_EventzBtns'); //showbtns
+      all_EventzBtns.forEach(el=>{el.classList.remove('hide_EventzBtns');el.classList.add('show_EventzBtns');});
+
       for(var i=0; i<eventzSet.length;i++){
          eventz = eventzSet[i];
          eventz.qID = i+1;
@@ -6005,11 +6062,17 @@ const storyzSaveClick = () => {
    }  
 } //end storyz save click
 
+//DISPLAY: STORYZ_MODULE--------------------------------
 const generateStoryClick = () =>{
    storyzFRAME.innerHTML="";//blank out
    let storyzSet = ai_storyz, storyz;
    if(ai_ledger.storyz_expanded){
       expandCollapseBtn6.innerHTML = '💨'   
+
+      let all_StoryzBtns = document.querySelectorAll('.hide_StoryzBtns'); //showbtns
+      all_StoryzBtns.forEach(el=>{el.classList.remove('hide_StoryzBtns');el.classList.add('show_StoryzBtns');});
+
+      
       for(var i=0; i<storyzSet.length;i++){
          storyz = storyzSet[i];
 
