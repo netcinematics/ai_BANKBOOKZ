@@ -771,7 +771,7 @@ border-radius: 22px;
     padding-top: 3%;
     padding-left: 4%;
     color: cyan;
-    line-height: 2.444em;   
+    line-height: 1.666em;   
 }
 .quarterBOX{
    display: flex;
@@ -1712,6 +1712,8 @@ border-radius:13px;
 .show_AssetzBtns{ display:flex; }
 .hide_TradezBtns{ display:none; }
 .show_TradezBtns{ display:flex; }
+.hide_MarginzBtns{ display:none; }
+.show_MarginzBtns{ display:flex; }
 .hide_EventzBtns{ display:none; }
 .show_EventzBtns{ display:flex; }
 .hide_StoryzBtns{ display:none; }
@@ -1738,7 +1740,7 @@ border-radius:13px;
          .btnTXT{font-size:0.999em;}
          /* .mainBtn{margin:0.666em;} */
          .subMenuBtn{font-size:0.777em;}
-         #messageBOX{flex-direction: column;}
+         #messageBOX{flex-direction: column; width:90%}
          #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX,
          #padSequenceBOX, #reviewPreviewBOX, #allMarginsBOX{
             margin:2% 0;
@@ -1823,19 +1825,19 @@ border-radius:13px;
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          "><span class="smICON">✴&nbsp;&nbsp;</span>
-         <span style="text-align: center;"> ai_BANKBOOKZ, calculator and ledger.</span> 
+         <span style="text-align: center;"> ai_BANKBOOKZ, ledger ENCODER,</span> 
             <span class="smICON">&nbsp;✳</span></section>            
 
          <section id="midBOX" style="display:flex;  justify-content: center; font-size:0.777em;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            <span style="text-align: center;">to transform finance metadata,</span>
+            <span style="text-align: center;">finance metadata TRANSFORMER,</span>
             <span class="smICON">&nbsp;❇</span>
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            <span style="text-align: center;">and generate visualization.</span>
+            <span style="text-align: center;">and visualization GENERATOR.</span>
             <span class="smICON">&nbsp;❇</span>
          </section>
       
@@ -1850,15 +1852,16 @@ align-items: center;">
       <section id="QuickBOX"
         style="width:80.888%; flex:1;    background: #001512;
         border-radius: 13px;
-        border: #35f405;
-        box-shadow:0px 0px 7px 0px #02f048;padding: 2%;padding-top: 3%;
-        padding-left:4%; color: #b19f50; line-height: 2.111em;">
+        border: 1px solid steelblue;
+        box-shadow: 0px 7px 20px 6px #39029e;
+        padding: 2%;padding-top: 3%;
+        padding-left:4%; color: #b19f50; line-height: 1.666em;">
         <button id=expandCollapseBtn0 class="expandCollapseBtn1" onclick="ExpandCollapseQuickClick()">🕸️</button>        
         <span class="boxTitle">🦁 
          <span style="font-size:0.777em; color:cyan"></span>
          <span style="font-size:0.555em">⏱🗠</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">QUICKTRACKZ</span>
-         <span style="font-size:0.555em"> 🐇(trim|pad)🐒</span>
+         <span style="font-size:0.555em"> 🐇(encode)🐒</span>
         </span><br>
         <article>
            <hr>   
@@ -1876,11 +1879,11 @@ align-items: center;">
 
       <section id="encodeBOX"
         style="width:80.888%; flex:1;border-radius: 13px; border: solid 1px steelblue; 
-        box-shadow: inset 1px 1px 11px 0px cyan; padding:2%;padding-top: 3%;padding-left:4%; color: cyan; line-height: 2.444em;">
+        box-shadow: inset 1px 1px 11px 0px cyan; padding:2%;padding-top: 3%;padding-left:4%; color: cyan; line-height:1.666em;">
         <span class="boxTitle">🎯 <span style="font-size:0.777em; color:cyan">1</span>
-         <span style="font-size:0.555em">List of &nbsp;</span>
+         <span style="font-size:0.555em">List&nbsp;</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">TOPTEN!</span> 
-         <span style="font-size:0.555em">(metadata) 🎪</span></span>
+         <span style="font-size:0.555em">(assets) 🎪</span></span>
          <button id=expandCollapseBtn1 class="expandCollapseBtn1" onclick="assetsExpandCollapseClick()">🕸️</button>
          <hr/>
          <article id="encodeDATA"></article>
@@ -1891,12 +1894,12 @@ align-items: center;">
          </section>
       <section id="decodeBOX"
          style="width:80.888%; flex:1;background: #0a0014;border-radius: 13px; border: solid 1px steelblue; box-shadow: 0px 7px 20px 6px #39029e;
-        padding: 2%;padding-left:4%;padding-top: 3%; color: cyan; line-height: 2.444em;">
+        padding: 2%;padding-left:4%;padding-top: 3%; color: cyan; line-height:1.666em;">
         
         <span class="boxTitle">🎲 <span style="font-size:0.777em; color:cyan">2</span>
          <span style="font-size:0.555em">Monthly &nbsp;</span>
-         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">LONGz</span>
-         <span style="font-size:0.555em">(time spot) 🎱</span></span>
+         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">TRADEz</span>
+         <span style="font-size:0.555em">(metadata) 🎱</span></span>
          <button id=expandCollapseBtn2 class="expandCollapseBtn1" onclick="spotsExpandCollapseClick()">🕸️</button>
          <hr/>
          <aside id="decodeSPOTZ"></aside>
@@ -1909,7 +1912,7 @@ align-items: center;">
       <section id="allMarginsBOX">
          <button id=expandCollapseBtn3 class="expandCollapseBtn1" onclick="marginsExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">🐤 <span style="font-size:0.777em; color:cyan">3</span> 
-         <span style="font-size:0.555em">Generate</span>
+         <span style="font-size:0.555em">Genr8</span>
          <span style="font-size: 1.222em;color:cyan;font-family: monospace;">MARGINz</span>
          <span style="font-size:0.555em">📏(on longz)💎</span>
          </span><br>
@@ -1920,7 +1923,7 @@ align-items: center;">
             <hr> 
             <!-- <button id="detailsBtn1" class="genReportBtn1" style="display:none;" onclick="setMarginDetailsClick(event)">details💎</button>  -->
             <button id="detailsBtn1" class="genReportBtn1 hide_MarginzBtns" onclick="setMarginDetailsClick(event)">details💎</button> 
-            <button id="totalsBtn1" class="genReportBtn1 hide_MarginzBtns" onclick="setMarginDetailsClick(event)">totals⚙️</button> 
+            <!-- <button id="totalsBtn1" class="genReportBtn1 hide_MarginzBtns" onclick="setMarginDetailsClick(event)">totals⚙️</button>  -->
       </section>
       <section id="padSequenceBOX"
          style="width: 80.888%;
@@ -1933,11 +1936,11 @@ align-items: center;">
          padding-left: 4%;
          padding-top: 3%;
          color: cyan;
-         line-height: 2.444em;">
+         line-height:1.666em;">
          <button id=expandCollapseBtn5 class="expandCollapseBtn1" onclick="eventzExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">💡 
           <span style="font-size:0.777em; color:cyan">5</span>
-          <span style="font-size:0.555em; color:#de9257;">Generate</span>
+          <span style="font-size:0.555em; color:#de9257;">Genr8</span>
           <span style="font-size: 1.222em;color:cyan;font-family: monospace;">
             MILESTONEz🐾</span> 
           <span style="font-size:0.555em; color:#de9257;">🎢(eventz)🚀</span>
@@ -1953,12 +1956,12 @@ align-items: center;">
       <section id="reviewPreviewBOX"
          style="width:80.888%; flex:1;background:#070c36;border-radius: 13px; border: solid 1px #a44ba9; 
          box-shadow:inset 0px 0px 11px 0px #5e336d;padding: 2%; padding-left:4%;padding-top: 3%;
-         color: #917db5; line-height: 2.444em;">
+         color: #917db5; line-height:1.666em;">
          <!-- <button id="generateReviewPreviewsBtn" class="genReportBtn1" onclick="generateStoryClick()">gener8🎬</button> -->
          <button id=expandCollapseBtn6 class="expandCollapseBtn1" onclick="storyzExpandCollapseClick()">🕸️</button>
          <span class="boxTitle">🌪️ 
             <span style="font-size:0.777em; color:cyan">6</span>
-          <span style="font-size:0.555em">Generate</span>
+          <span style="font-size:0.555em">Genr8</span>
           <span style="font-size: 1.222em;color:cyan;font-family: monospace;">REVIEWz</span>
           <span style="font-size:0.555em">🎬(storyz)🛠️</span>
          </span><br>
@@ -1970,12 +1973,13 @@ align-items: center;">
             <button id="storyAddStoryzBtn6" class="genReportBtn1 hide_StoryzBtns" style="font-size: 0.888em;" onclick="addStoryBOXClick(event)">addStoryz🐜🍄</button> 
       </section>
       <section id="historyBOX"
-        style="width:80%;flex:1; background: #14082d; border-radius: 13px; border: solid 1px darkgreen; box-shadow: 0px 7px 20px 0px #029e4a;
-        padding: 2%; padding-left:4%; padding-top: 3%; color: cyan; line-height: 2.444em;">
+        style="width:80.888%;flex:1; background: #14082d; border-radius: 13px; border: solid 1px darkgreen; 
+        box-shadow: 2px 1px 3px 0px #029e4a;
+        padding: 2%; padding-left:4%; padding-top: 3%; color: cyan; line-height: 2em;">
         <button id=expandCollapseBtn7 class="expandCollapseBtn1" onclick="totalzExpandCollapseClick()">🕸️</button>
         <span class="boxTitle">🌊 
          <span style="font-size:0.777em; color:cyan">7</span> 
-        <span style="font-size:0.555em">Generate</span>
+        <span style="font-size:0.555em">Genr8</span>
         <span style="font-size: 1.222em;color:cyan;font-family: monospace;">
          NETTOTz</span>
          <span style="font-size:0.555em">🚦(reportz)🚨</span>
@@ -2485,9 +2489,8 @@ align-items: center;">
       <legal style="color:darkslategray;font-size: 0.666em;"><div style="margin-top:0;font-size: xx-small;
          margin-bottom: 1em;
      ">2020 - <span id="dateTXTStamp"></span> © NetCinematics llc. All rights reserved.
-         NOTE: this is a personal ledger system, not financial advice. 
-        Not for day trading. USE: for quarterly/monthly ai_dashboard financial ledger, 
-        metric and analytic visualization analysis. Technical Research: generate actual_financial_intelligence, from artificial-intelligence.
+        Personal ledger system, not financial advice. Not for day trading. Financial ledger.
+        Educational Technical Research: generate visualization.
       </div>
       </legal>
 <script>
@@ -2542,7 +2545,7 @@ align-items: center;">
    let storyzFRAME = document.getElementById('storyzFRAME');         
 
    let detailsBtn1 = document.getElementById('detailsBtn1');
-   let detailsBtn2 = document.getElementById('detailsBtn2');
+   // let detailsBtn2 = document.getElementById('detailsBtn2');
    let totalsBtn1 = document.getElementById('totalsBtn1');
    let totalsBtn2 = document.getElementById('totalsBtn2');
    let openBtn1 = document.getElementById('openBtn1');
@@ -5387,16 +5390,19 @@ const deleteSelectedQuick = (e)=>{
 let show_margin_details_view = false;
 const setMarginDetailsClick = (e)=>{
    ai_ledger.margin_expanded = true;
-   if(e.target.id==='detailsBtn1'){
-      totalsBtn1.style.display='block'
-      show_margin_details_view = true;
-   }else{
-      totalsBtn1.style.display='none'               
+   // if(e.target.id==='detailsBtn1'){
+   if(show_margin_details_view){
+      // ai_ledger.margin_detail = true;
+      // totalsBtn1.style.display='block'
       show_margin_details_view = false;
+   }else{
+      // ai_ledger.margin_detail = false;
+   //    totalsBtn1.style.display='none'               
+      show_margin_details_view = true;
    }
-   allMarginsBOX.scrollIntoView({
-   behavior: 'smooth',
-   block: 'start'})
+   // allMarginsBOX.scrollIntoView({
+   // behavior: 'smooth',
+   // block: 'start'})
    generateMarginsClick();
 }
 
@@ -5406,11 +5412,11 @@ const generateMarginsClick = ()=>{ // GENERATE Margin DISPLAY
    let ticker,spot_ticker,tickerBOX1,tickerSet=[],spotSet=[],numSPOTS=0;
    let numSPOT1, marginsRow1, profitRow1,curPrice1;
    generatedMarginsBOX.innerHTML = ""; //reset view
-   if(show_margin_details_view){
-      detailsBtn1.style.display = 'none'; //hide details
-   }else{
-      detailsBtn1.style.display='block' //show details btn
-   }
+   // if(show_margin_details_view){
+   //    detailsBtn1.style.display = 'none'; //hide details
+   // }else{
+   //    detailsBtn1.style.display='block' //show details btn
+   // }
    tickerSet = ai_ledger.ticks;
    spotSet = ai_ledger.spots;
    //TICKER INIT - iterator METADATA factory (generator)
