@@ -11,7 +11,8 @@ hr{border-top: solid 1px steelblue;
    html, body { height: 100%; width:100%; background:black; margin:0}
    body{padding-top:1em;display:flex;flex-direction:column;overflow:hidden;
    justify-content:space-evenly;align-items:center;    font-size: 1.222rem;}
-   input { width: auto; box-sizing: border-box; }         
+   input { width: auto; box-sizing: border-box; }   
+   textarea::placeholder { color: skyblue; }      
    .topLeftBtn1{position:absolute;top:3px;left:6px;display:flex;}
    .topLeftBtn1 .txt1{ color:skyblue; font-size:0.444em;margin:3px 0 0 3px;}
    .topLeftBtn1 .icon1 {font-size:1em;padding-bottom:6px;}
@@ -276,6 +277,15 @@ hr{border-top: solid 1px steelblue;
     padding: 1%;
     background: #364e6a;
 }
+.importDataBtn1{
+   cursor: pointer;
+    font-size: 1em;
+    border-radius: 13px;
+    color: steelblue;
+    padding: 4px 8px;
+    background: #0a1727;
+    display:none;
+}
 .expandCollapseBtn0{
    border-radius:13px;background:#d1d67b;
    cursor:pointer; margin:1em 0 1em 0;
@@ -345,6 +355,17 @@ hr{border-top: solid 1px steelblue;
    align-items: center;
    text-align: right;
 }
+.timezROW1{
+   font-size: 0.888em;
+    color: #136567;
+    margin: 0.444em 1em;
+    display: flex;
+    max-height: 24px;
+    align-items: center;
+    text-align: right;
+    justify-content: space-between;
+    font-family: verdana;
+}
 .roleData1{    border-radius: 8px;
    font-size: 0.555em;
    background: #02184b;
@@ -355,6 +376,15 @@ hr{border-top: solid 1px steelblue;
    height: 16px;
    margin-bottom: -1px;
    border: 1px solid steelblue;}
+.timezData1{    
+   text-align: center;
+   border: 1px solid steelblue;
+   color: steelblue;
+    background: black;
+    border-radius: 12px;
+    padding: 3px;
+
+}
    .typeBOX1{border-radius: 8px;
    font-size: 0.777em;
    background: #1a0033;
@@ -746,6 +776,13 @@ border-radius: 22px;
     height:12em !important;
 }
 
+.importzTXTArea {
+    margin: 1% 2%;
+    padding: 10px 4.444%;
+    line-height: 0.777em;
+    height: 12em !important;
+}
+
 #rightBOX,#leftBOX,#keyBOX{
    margin:1%;
    border: solid 1px steelblue;
@@ -753,7 +790,7 @@ border-radius: 22px;
    font-size: 0.777em;}
 
 #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #padSequenceBOX, 
-#historyBOX, #allMarginsBOX, #reviewPreviewBOX {
+#historyBOX, #allMarginsBOX, #reviewPreviewBOX, #importBOX {
    margin:2%;
 }
 
@@ -1741,7 +1778,7 @@ border-radius:13px;
          /* .mainBtn{margin:0.666em;} */
          .subMenuBtn{font-size:0.777em;}
          #messageBOX{flex-direction: column; width:90%}
-         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX,
+         #encodeBOX, #decodeBOX, #instructionBOX, #scheduleBOX, #historyBOX, #importBOX,
          #padSequenceBOX, #reviewPreviewBOX, #allMarginsBOX{
             margin:2% 0;
          }  
@@ -1815,8 +1852,8 @@ border-radius:13px;
                <button id="latestYRHI1" class="latestBtn1" style="float:right" 
                onclick="getLastATHClick()">monthHiLo🔢</button>
 
-               <button id="latestCrypto1" class="latestBtn1" style="float:right" 
-               onclick="getLastCryptoClick()">getCrypto🔣</button>
+               <!-- <button id="latestCrypto1" class="latestBtn1" style="float:right" 
+               onclick="getLastCryptoClick()">getCrypto🔣</button> -->
          </section>
 
         </header>
@@ -1825,13 +1862,13 @@ border-radius:13px;
          <section id="leftBOX" style="display:flex; justify-content: center;
          border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
          "><span class="smICON">✴&nbsp;&nbsp;</span>
-         <span style="text-align: center;"> ai_BANKBOOKZ, ledger ENCODER,</span> 
+         <span style="text-align: center;"> ai_BANKBOOKZ, finance ledger, ENCODER,</span> 
             <span class="smICON">&nbsp;✳</span></section>            
 
          <section id="midBOX" style="display:flex;  justify-content: center; font-size:0.777em;
             border-radius: 13px;padding: 2px 6px;color: steelblue;align-items: center;
             "><span class="smICON">&nbsp;&nbsp;✧&nbsp;</span>
-            <span style="text-align: center;">finance metadata TRANSFORMER,</span>
+            <span style="text-align: center;">metadata TRANSFORMER,</span>
             <span class="smICON">&nbsp;❇</span>
          </section>
          <section id="rightBOX" style="display:flex;  justify-content: center;
@@ -1850,7 +1887,7 @@ align-items: center;">
       <input id="fifoTooltip"></input>
       <input id="fifoRoletip"></input>
       <section id="QuickBOX"
-        style="width:80.888%; flex:1;    background: #001512;
+        style="width:80.888%; flex:1;    background: #080015;
         border-radius: 13px;
         border: 1px solid steelblue;
         box-shadow: 0px 7px 20px 6px #39029e;
@@ -1992,6 +2029,24 @@ align-items: center;">
          <hr>   
        </article> 
       </section>
+      <section id="importBOX"
+      style="width:80.888%;flex:1; background: #071642; border-radius: 13px; border: solid 1px darkgreen; 
+      box-shadow: 2px 1px 3px 0px #044e44;
+      padding: 2%; padding-left:4%; padding-top: 3%; color: cyan; line-height: 2em;">
+      <button id=expandCollapseBtn8 class="expandCollapseBtn1" onclick="importzExpandCollapseClick()">🕸️</button>
+      <span class="boxTitle">💫 
+       <span style="font-size:0.777em; color:cyan">7</span> 
+      <span style="font-size:0.555em">Encode</span>
+      <span style="font-size: 1.222em;color:cyan;font-family: monospace;">
+       IMPORTz</span>
+       <span style="font-size:0.555em">🦖(data)🦕</span>
+       </span></span><br>
+      <article style="font-size:0.777em;">
+       <hr>   
+       <section id="importFRAME"></section>
+       <hr>   
+     </article> 
+    </section>
       <section id="instructionBOX"
         style="width:80%; flex:1;padding: 1% 2% 1% 2%;
         background: #000815; font-size:0.777em;
@@ -2539,6 +2594,7 @@ align-items: center;">
 
    let generatedQuickBOX = document.getElementById('generatedQuickBOX');         
    let generatedMonthTotalsGRID = document.getElementById('generatedMonthTotalsGRID');
+   let importFRAME = document.getElementById('importFRAME');
    let generatedMarginsBOX = document.getElementById('generatedMarginsBOX');
    let generatedPreviewBOX = document.getElementById('generatedPreviewBOX');         
    let eventzFRAME = document.getElementById('eventzFRAME');         
@@ -2560,6 +2616,7 @@ align-items: center;">
    let expandCollapseBtn5 = document.getElementById('expandCollapseBtn5');
    let expandCollapseBtn6 = document.getElementById('expandCollapseBtn6');
    let expandCollapseBtn7 = document.getElementById('expandCollapseBtn7');
+   let expandCollapseBtn8 = document.getElementById('expandCollapseBtn8');
 
    let fifoTooltip = document.getElementById("fifoTooltip");  
    let fifoRoletip = document.getElementById("fifoRoletip");  
@@ -2632,15 +2689,18 @@ const update_History_matrix = ( tickr ) => {//data updated: to not lose, push du
 
 //HI-LEVEL_UTILITIES*************************
 const getLastPriceClick = ()=>{ //loop all for last close.
-   let item,urls=[];
+   let item,queries=[];//urls=[];
    for(let i=0;i<ai_ledger.ticks.length;i++){
       // if(i>=1){continue;}//DEV_limiter stay below 20
       item = ai_ledger.ticks[i];
       // item.tick = 'NVDA';//DEV_specifier 
-      urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
+      // urls.push(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`)
+      queries.push({tkr:item.tick,url:`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${item.tick}&interval=5min&apikey=${stock_api_key}`})
    }
-   if(stock_api_key && urls.length){
-      getData_Quotes(urls)
+   // if(stock_api_key && urls.length){
+   if(stock_api_key && queries.length){
+      getData_Quotes(queries)
+      // getData_Quotes(urls)
       showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
    } else {
       showErrorMSG('🛠️ connect api key'); 
@@ -2690,6 +2750,42 @@ function calculatePercentageMove(num1, num2) {
    const percentageMove = (difference / base) * 100;
    return (num2 >= num1) ? percentageMove : -percentageMove;
 }
+
+function writeTXNHash(TXNOBJ){
+   let uniqueHASH = ''; //dynamic by contents.
+   if(TXNOBJ){ //parse string by comma then colon.
+      if(TXNOBJ.tkr){uniqueHASH+=`tkr:${TXNOBJ.tkr},`}else{
+         console.log(`required data missing:tkr`); return '';}
+      if(TXNOBJ.type){uniqueHASH+=`typ:${TXNOBJ.type},`}else{
+         console.log(`required data missing:type`); return '';}
+      if(TXNOBJ.ymd){
+         let ymdARR = TXNOBJ.ymd.split('_');
+         TXNOBJ.year = ymdARR[0];
+         TXNOBJ.month = ymdARR[1];
+         TXNOBJ.day = ymdARR[2];
+      }else{
+         console.log(`required data missing:ymd`); return '';}
+      // if(TXNOBJ.year){uniqueHASH+=`yr:${TXNOBJ.year},`}
+      // if(TXNOBJ.month){uniqueHASH+=`mo:${TXNOBJ.month},`}
+      // if(TXNOBJ.day){uniqueHASH+=`dy:${TXNOBJ.day},`}
+      if(TXNOBJ.amt){uniqueHASH+=`amt:${TXNOBJ.amt},`}else{
+         console.log(`required data missing:amt`); return '';}
+      if(TXNOBJ.price){uniqueHASH+=`at:${TXNOBJ.price}`}else{
+         console.log(`required data missing:price`); return '';}
+   }
+   if(!TXNOBJ.hashes){TXNOBJ.hashes = []}
+   let dupeHash = false, pastHash;
+   for(var i=0; i<TXNOBJ.hashes.length;i++){
+      pastHash = TXNOBJ.hashes[i];
+      if(pastHash===uniqueHASH){ //do not save in edit history.
+         dupeHash = true; break;
+      }
+   }
+   if(!dupeHash){TXNOBJ.hashes.push(uniqueHASH)}
+   TXNOBJ.txnHASH = uniqueHASH;
+   return uniqueHASH;
+}
+
 
 //ENDHI-LEVEL_UTILITIES*************************
 
@@ -5015,7 +5111,6 @@ const copyQuickQrtrClick = ()=>{ // COPY FORWARD BTN
 
       ai_main.qrtrz[ai_name].tickrz.push(editTKRSymb);
    }
-debugger;
    //SAVE to LOCAL STORAGE
    localStorage.ai_main = JSON.stringify(ai_main) 
    generateQuickClick(); //RELOAD VIEW.  
@@ -5639,6 +5734,13 @@ const totalzExpandCollapseClick = ()=>{
    //SAVE to LOCAL STORAGE
    localStorage.ai_ledger = JSON.stringify(ai_ledger)  
    generateTotalzGridClick(); //RELOAD VIEW. 
+   showErrorMSG('⚔️ SAVED ⚔️');     
+}
+const importzExpandCollapseClick = ()=>{
+   ai_ledger.importz_expanded = !ai_ledger.importz_expanded;
+   //SAVE to LOCAL STORAGE
+   localStorage.ai_ledger = JSON.stringify(ai_ledger)  
+   showImportzModule(); //RELOAD VIEW. 
    showErrorMSG('⚔️ SAVED ⚔️');     
 }
 
@@ -6709,6 +6811,282 @@ generateTotalzGridClick();
 /**********************************************************\
  * END TOTALZ section
 \**********************************************************/
+
+/**********************************************************\
+ * IMPORTZ section
+\**********************************************************/
+const showImportzModule = ()=>{ // GENERATE ----------IMPORTZ
+   importFRAME.innerHTML=""; //clear out data
+   if(ai_ledger.importz_expanded){
+      expandCollapseBtn8.innerHTML = '💨'    
+      importROW1 = document.createElement('article')
+      importROW1.classList.add('txnzRow1')
+      importFRAME.appendChild(importROW1)
+
+      //BEGIN-COMBOBOX-------------timez status.   
+      let timeKEYZ = Object.keys(ai_main.qrtrz);
+      timeKEYZ.unshift('...')
+      timezROW = document.createElement('aside')
+      timezROW.classList.add('timezROW1')
+      timezBOX = document.createElement('article')
+      timezBOX.classList.add('timezROW1')
+      timezBOX.innerHTML="timez&nbsp;"
+      timezData = document.createElement('select')
+      timezData.value = '';
+      timezData.classList.add('timezData1')
+      timezBOX.appendChild(timezData)
+      timezROW.appendChild(timezBOX)
+      timezData.addEventListener("change",(e)=>{ 
+         e.target.parentElement.parentElement.children[1].style.display = 'block';
+      });  
+      for(var timeIDX=0;timeIDX<timeKEYZ.length;timeIDX++){
+         timez1 = document.createElement('option')
+         timez1.value = `${timeKEYZ[timeIDX]}`;
+         timez1.innerHTML = `${timeKEYZ[timeIDX]}`;
+         timezData.appendChild(timez1);
+      }
+      importROW1.appendChild(timezROW)
+      //END-COMBOBOX----------------------timez
+      //IMPORT BTN ***********************************
+      importBtn1 = document.createElement('button')
+      importBtn1.innerHTML = 'Import Mo Data 📅'
+      importBtn1.classList.add('importDataBtn1')
+      importBtn1.addEventListener("click",(e)=>{ //IMPORT MONTH DATA
+         let jsonImportData = null;
+         let jsonImport = e.target.parentElement.parentElement.children[1].value;
+         if(!jsonImport){showErrorMSG('⚠️no data⚠️');return;}
+         try{ jsonImportData = JSON.parse(jsonImport); }catch(e){showErrorMSG('⚠️bad data⚠️');return;}
+         if(!jsonImportData || !jsonImportData.length){showErrorMSG('⚠️missing []⚠️');return;}
+         let timezSelection =e.target.previousSibling.children[0].value;
+         let monthObj = ai_main.qrtrz[timezSelection]
+         if(!monthObj){showErrorMSG('⚠️refresh new month⚠️');return;}
+         let monthTXNz = monthObj.tickrz.flatMap((f,i)=>{ 
+            if(!f.txnz){f.txnz=[]}
+            f.txnz = f.txnz.map((el,idx)=>{
+               el.tkr = f.tkr; //add tkr inside txn obj
+               return el;
+            });
+            return f.txnz; 
+         })
+         if(!monthObj){showErrorMSG('⚠️bad month⚠️');return;}
+         //END ERROR TRAP
+         //REMOVE DUPLICATES--------------------------------
+         let inputTXN,tgtTXN,uniqueTXNZ=[],dupe=false;
+         for(var txnIDX=0;txnIDX<jsonImportData.length;txnIDX++){//All input RECS.
+            inputTXN=jsonImportData[txnIDX]; dupe=false;
+            if(!inputTXN.txnHASH){
+                  inputTXN.txnHASH = writeTXNHash(inputTXN);
+            }            
+            for(var MoTxnIDX=0;MoTxnIDX<monthTXNz.length;MoTxnIDX++){ //All db data.
+               tgtTXN=monthTXNz[MoTxnIDX]
+               if(!tgtTXN.txnHASH){
+                  tgtTXN.txnHASH = writeTXNHash(tgtTXN);
+               }
+               if(inputTXN.txnHASH===tgtTXN.txnHASH){ //duplicate txn
+                  console.log('Duplicate TXN:',inputTXN.txnHASH);
+                  dupe=true;
+                  break;
+               }
+            }
+            if(dupe){continue}
+            else if(inputTXN.txnHASH) {
+               uniqueTXNZ.push(inputTXN)
+            } else {console.log('⚠️missing data field⚠️')}
+         }
+         //ENDREMOVE DUPLICATES--------------------------------
+         if(uniqueTXNZ.length){
+            //load txns to tkrz---------------------------------
+            let uREC,tickREC, foundREC;
+            for(var uIDX=0;uIDX<uniqueTXNZ.length;uIDX++){//All unique RECS.
+               uREC=uniqueTXNZ[uIDX],foundREC=false;
+               for(var tickIDX=0;tickIDX<monthObj.tickrz.length;tickIDX++){ //All db da
+                  tickREC = monthObj.tickrz[tickIDX];
+                  if(tickREC.tkr===uREC.tkr){
+                     foundREC = true; 
+                     tickREC.txnz.push(uREC); //ADD NEW DATA to DB.
+                     break;
+                  }
+               }
+               if(!foundREC){
+                  console.log('DID NOT FIND TKR',uREC.tkr)
+               }
+            }
+            //END load txns to tkrz---------------------------------
+            e.target.style.display = 'none'; //hide btn
+            //SAVE to LOCAL STORAGE
+            localStorage.ai_main = JSON.stringify(ai_main) 
+            showImportzModule(); //RELOAD VIEW.  
+            showErrorMSG(`🏰${uniqueTXNZ.length} new txnz🏰`);
+            console.log(`${uniqueTXNZ.length} new txnz`);
+         } else{
+            showErrorMSG('🌟no new txnz🌟');
+         }
+      }); //[{"tkr":"IBIT","type":"Sell","mode":"Market","ymd":"2024_03_23","amt":"$22.00","shares":"0.545296","price":"$40.35"},{"tkr":"BTC","type":"Sell","mode":"Market","ymd":"2024_03_23","amt":"$44.00","shares":"0.00062862","price":"$70,000.44"},{"tkr":"COST","type":"Buy","mode":"Market","ymd":"2024_03_23","amt":"$44.00","shares":"0.0604","price":"$728.48"}]
+      timezROW.appendChild(importBtn1)
+      //END-IMPORT BTN----------------------
+
+      //TEXT AREA -----------------------------------------
+      importTXT1 = document.createElement('textarea')
+      importTXT1.classList.add('scrollBarV')
+      importTXT1.classList.add('textareaBOX')
+      importTXT1.classList.add('importzTXTArea')
+      importTXT1.spellcheck = false;
+      importTXT1.placeholder = 
+`import json data here, in format:\n 
+   [{"tkr":"TKR","type":"Sell","date":"Mar 25",\n
+     "amt":"$22.00","shares":"0.321",\n
+     "price":"$40.35","mode":"Market"
+   },] \n
+   TIPS: \n
+   - Duplicates removed. \n
+   - TXNHASH: YR|MO|DY|AMT|PRICE|SHARES (uuid) \n
+   - Hour and Second, edited on chart.
+`;                                    
+      importROW1.appendChild(importTXT1)  
+
+
+      
+      
+   }//end if collapsed
+}
+showImportzModule();
+
+//RHDATASCRPhttps://robinhood.com/account/history
+let getTXNZData = ()=>{ 
+    let titles=document.querySelectorAll('H2'); ;
+    let tgtNode=titles[1].nextSibling;
+    let tkr,type,mode,MoDay,amt,shares,price,ymd;
+    let TKRTYPE='',TXNDATE='',TXNAMT='',TXNSHARESPRICE='';
+    let rhData=[],TKRTYPEARR=[],TXNSHARESPRICEARR=[];
+    let dateRegX = /h$/, today = new Date();
+    let year = today.getYear(); 
+    let month = today.getMonth(); 
+    let formattedMonth = new Intl.DateTimeFormat('en-US', { month: 'short' }).format(today);
+    let day = today.getDate().toString();
+    let todayStamp = `${formattedMonth} ${day}`;
+    let limiter = 1, limit=300, skiprow=false;
+    function matchTKRTitle(tkr){
+      tkr = tkr.toUpperCase();
+      if(tkr==='COSTCO'){tkr='COST'}
+      else if(tkr==='BITCOIN'){tkr='BTC'}
+      else if(tkr==='ISHARES BITCOIN TRUST'){tkr='IBIT'}
+      else if(tkr==='COINBASE'){tkr='COIN'}
+      else if(tkr==='AMAZON'){tkr='AMZN'}
+      else if(tkr==='VISA'){tkr='V'}
+      else if(tkr==='NVIDIA'){tkr='NVDA'}
+      else if(tkr==='ALPHABET CLASS C'){tkr='GOOG'}
+      else if(tkr==='MONGODB'){tkr='MDB'}
+      else if(tkr==='DOGECOIN'){tkr='DOGE'}
+      else if(tkr==='ETHEREUM'){tkr='ETH'}
+      else if(tkr==='AVALANCHE'){tkr='AVAX'}
+      else if(tkr==='ROBINHOO MARKETS'){tkr='HOOD'}
+      return tkr;
+    }
+    function getYMDFromMoDay(MoDay){
+      if(!MoDay){return ''}
+      let ymd = ''
+      let today = new Date();
+      let year = today.getFullYear(); 
+      let MoDayArr = MoDay.split(' ')
+      let mo = MoDayArr[0].toUpperCase();
+      let moNUM = 0;
+      let day = 0;
+      if(mo==='JAN')     {moNUM=1}
+      else if(mo==='FEB'){moNUM=2}
+      else if(mo==='MAR'){moNUM=3}
+      else if(mo==='APR'){moNUM=4}
+      else if(mo==='MAY'){moNUM=5} 
+      else if(mo==='JUN'){moNUM=6}
+      else if(mo==='JUL'){moNUM=7}
+      else if(mo==='AUG'){moNUM=8}
+      else if(mo==='SEP'){moNUM=9}
+      else if(mo==='OCT'){moNUM=10}
+      else if(mo==='NOV'){moNUM=11}
+      else if(mo==='DEC'){moNUM=12}
+      day = MoDayArr[1];
+      if(year && moNUM && day){
+         ymd = `${year}_${moNUM}_${day}`;
+      }
+      return ymd;
+    }    
+    while(tgtNode.classList.contains('web-app-emotion-cache-1gb8ekd')
+    ){  //console.log('#',limiter)
+         skiprow=tgtNode.children[0].children[0].children[0].children[0].children[1].children[0];
+         if(skiprow && skiprow.innerHTML==='Canceled'){//skip row canceled
+            console.log('SKIPROW','Canceled TXN')
+            //EXIT CONDITIONS
+            limiter++; //EXIT
+            if(limiter > limit){console.log('LIMIT REACHED',limit); break } //EXIT
+            if(!tgtNode.nextSibling){console.log('END of DATA|','TXNCNT',limiter-1); break } //EXIT
+            tgtNode=tgtNode.nextSibling;  //EXIT            
+            continue;
+         }
+         skiprow=tgtNode.children[0].children[0].children[0].children[0].children[1].children[0].children[0]
+         if(skiprow && skiprow.innerHTML.length>0){//skip row interest payment
+            console.log('SKIPROW','Interest PMT')
+            //EXIT CONDITIONS
+            limiter++; //EXIT
+            if(limiter > limit){console.log('LIMIT REACHED',limit); break } //EXIT
+            if(!tgtNode.nextSibling){console.log('END of DATA|','TXNCNT',limiter-1); break } //EXIT
+            tgtNode=tgtNode.nextSibling;  //EXIT            
+            continue;
+         }
+         //GETRAWz
+         TKRTYPE = tgtNode.children[0].children[0].children[0].children[0].children[0].children[0].innerHTML;
+         TXNDATE = tgtNode.children[0].children[0].children[0].children[0].children[0].children[1].innerHTML;
+         TXNAMT  = tgtNode.children[0].children[0].children[0].children[0].children[1].children[0].innerHTML;
+         TXNSHARESPRICE = tgtNode.children[0].children[0].children[0].children[0].children[1].children[2].innerHTML;
+         //TEST
+         // console.log('TKRTYPE',TKRTYPE);
+         // console.log('TXNDATE',TXNDATE);
+         // console.log('TXNAMT',TXNAMT);
+         // console.log('TXNSHARESPRICE',TXNSHARESPRICE);
+         //DATA TRANSFORM
+         TKRTYPEARR = TKRTYPE.split(' ')
+         type = TKRTYPEARR.pop().toUpperCase();
+         mode = TKRTYPEARR.pop()
+         tkr = TKRTYPEARR.join(' ').toUpperCase();
+         tkr = matchTKRTitle(tkr);
+         if(dateRegX.test(TXNDATE)){ // today mask
+            MoDay = todayStamp;
+         } else { MoDay = TXNDATE}
+         ymd = getYMDFromMoDay(MoDay);
+         TXNSHARESPRICEARR = TXNSHARESPRICE.split(' ')
+         price = TXNSHARESPRICEARR.pop();
+         price = price.replace(/\$/g,'');
+         // price = parseFloat(amt).toFixed(2);
+         shares = TXNSHARESPRICEARR[0];
+         shares = parseFloat(shares).toFixed(4)
+         amt = TXNAMT.replace(/\$/g,'')
+         amt = parseFloat(amt).toFixed(0);
+         //TEST
+         // console.log('TKR:',tkr,'TYPE:',type,'MODE:',mode,'DATE',MoDay,'AMT',TXNAMT,'SHARES',shares,'PRICE',price);
+         rhData.push({ //SAVE JSON TXN DATA (tysm)
+            "tkr":tkr,"type":type,"mode":mode,"ymd":ymd,
+            "amt":amt,"shares":shares,"price":price,role:'UNSET'
+         })
+         //EXIT CONDITIONS
+         limiter++; //EXIT
+         if(limiter > limit){console.log('LIMIT REACHED',limit); break } //EXIT
+         if(!tgtNode.nextSibling){console.log('END of DATA|','TXNCNT',limiter-1); break } //EXIT
+         tgtNode=tgtNode.nextSibling;  //EXIT
+    }
+    if(rhData.length){
+       rhData = rhData.reverse(); //FIFO
+       console.log('MyTXNData:');
+       console.log(JSON.stringify(rhData))
+    }else{ 
+       console.log('no data')
+    }
+}; 
+//getTXNZData();
+//EXAMPLE3:
+//[{"tkr":"AMD","type":"SELL","mode":"Limit","ymd":"2024_2_29","amt":"30","shares":"0.1538","price":"195.11","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_1","amt":"25","shares":"0.0004","price":"62,300.49","role":"UNSET"},{"tkr":"MDB","type":"BUY","mode":"Market","ymd":"2024_3_1","amt":"88","shares":"0.1959","price":"449.10","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_1","amt":"22","shares":"0.0004","price":"62,137.90","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_1","amt":"22","shares":"0.0004","price":"62,372.68","role":"UNSET"},{"tkr":"MDB","type":"BUY","mode":"Market","ymd":"2024_3_1","amt":"88","shares":"0.1959","price":"449.10","role":"UNSET"},{"tkr":"AMD","type":"SELL","mode":"Market","ymd":"2024_3_1","amt":"30","shares":"0.1492","price":"201.11","role":"UNSET"},{"tkr":"GITLAB","type":"SELL","mode":"Market","ymd":"2024_3_1","amt":"54","shares":"0.7409","price":"72.96","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_3","amt":"88","shares":"0.0014","price":"61,792.14","role":"UNSET"},{"tkr":"NVDA","type":"BUY","mode":"Market","ymd":"2024_3_3","amt":"60","shares":"0.0713","price":"841.61","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_3","amt":"100","shares":"0.0016","price":"62,555.39","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_3","amt":"77","shares":"0.0012","price":"63,495.88","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"50","shares":"0.0657","price":"761.50","role":"UNSET"},{"tkr":"AMD","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"33","shares":"0.1585","price":"208.10","role":"UNSET"},{"tkr":"SUPER MICRO COMPUTER","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"50","shares":"0.0465","price":"1,074.83","role":"UNSET"},{"tkr":"MICROSTRATEGY","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"33","shares":"0.0255","price":"1,294.86","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"388","shares":"2.9057","price":"133.53","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_4","amt":"777","shares":"0.0116","price":"67,173.40","role":"UNSET"},{"tkr":"AMZN","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"40","shares":"0.2241","price":"178.48","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"33","shares":"0.0005","price":"66,852.38","role":"UNSET"},{"tkr":"ETH","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"12","shares":"0.0034","price":"3,538.45","role":"UNSET"},{"tkr":"MDB","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"44","shares":"0.0995","price":"442.09","role":"UNSET"},{"tkr":"V","type":"BUY","mode":"Market","ymd":"2024_3_4","amt":"15","shares":"0.0537","price":"279.08","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"55","shares":"0.0008","price":"67,401.72","role":"UNSET"},{"tkr":"TECHNOLOGY SELECT SECTOR SPDR","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"15","shares":"0.0710","price":"211.39","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"88","shares":"0.1032","price":"852.47","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"22","shares":"0.0003","price":"67,677.58","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"44","shares":"0.0006","price":"68,139.14","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_4","amt":"111","shares":"0.0018","price":"61,105.95","role":"UNSET"},{"tkr":"ETH","type":"SELL","mode":"Market","ymd":"2024_3_4","amt":"25","shares":"0.0067","price":"3,708.58","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_4","amt":"111","shares":"0.0017","price":"64,536.24","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_5","amt":"22","shares":"0.0287","price":"766.20","role":"UNSET"},{"tkr":"AMZN","type":"BUY","mode":"Market","ymd":"2024_3_5","amt":"22","shares":"0.1263","price":"174.15","role":"UNSET"},{"tkr":"IBIT","type":"SELL","mode":"Market","ymd":"2024_3_5","amt":"44","shares":"1.2450","price":"35.34","role":"UNSET"},{"tkr":"GRAYSCALE BITCOIN TRUST (BTC)","type":"SELL","mode":"Market","ymd":"2024_3_5","amt":"33","shares":"0.5970","price":"55.26","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_5","amt":"111","shares":"0.0018","price":"63,418.61","role":"UNSET"},{"tkr":"ROBINHOOD MARKETS","type":"BUY","mode":"Limit","ymd":"2024_3_5","amt":"66","shares":"4.1173","price":"16.03","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_5","amt":"111","shares":"0.0017","price":"65,454.84","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_6","amt":"111","shares":"0.0017","price":"66,724.59","role":"UNSET"},{"tkr":"ETH","type":"SELL","mode":"Market","ymd":"2024_3_6","amt":"20","shares":"0.0052","price":"3,843.35","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_6","amt":"22","shares":"0.0003","price":"66,899.76","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_6","amt":"144","shares":"0.1621","price":"888.39","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_6","amt":"1","shares":"7.5488","price":"132.47","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_6","amt":"25","shares":"0.0323","price":"773.44","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_7","amt":"44","shares":"0.0007","price":"67,413.50","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_7","amt":"33","shares":"0.0422","price":"781.52","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Limit","ymd":"2024_3_7","amt":"111","shares":"0.1480","price":"749.79","role":"UNSET"},{"tkr":"AMZN","type":"SELL","mode":"Limit","ymd":"2024_3_7","amt":"11","shares":"0.0623","price":"176.65","role":"UNSET"},{"tkr":"MDB","type":"BUY","mode":"Market","ymd":"2024_3_7","amt":"88","shares":"0.2295","price":"383.47","role":"UNSET"},{"tkr":"AVAX","type":"SELL","mode":"Market","ymd":"2024_3_7","amt":"11","shares":"0.2560","price":"43.05","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_7","amt":"222","shares":"0.2334","price":"951.02","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Market","ymd":"2024_3_7","amt":"22","shares":"0.0291","price":"755.91","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_8","amt":"22","shares":"0.0003","price":"67,672.52","role":"UNSET"},{"tkr":"AMD","type":"SELL","mode":"Limit","ymd":"2024_3_8","amt":"22","shares":"0.1034","price":"212.68","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_8","amt":"133","shares":"0.0019","price":"68,682.10","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_8","amt":"166","shares":"0.1723","price":"963.43","role":"UNSET"},{"tkr":"COIN","type":"SELL","mode":"Market","ymd":"2024_3_8","amt":"100","shares":"0.3787","price":"264.00","role":"UNSET"},{"tkr":"AMD","type":"SELL","mode":"Market","ymd":"2024_3_8","amt":"50","shares":"0.2244","price":"222.73","role":"UNSET"},{"tkr":"SPDR S&AMP;P 500 ETF","type":"SELL","mode":"Market","ymd":"2024_3_8","amt":"333","shares":"0.6432","price":"517.62","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_8","amt":"88","shares":"0.0997","price":"882.42","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Market","ymd":"2024_3_8","amt":"66","shares":"0.0905","price":"729.03","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_8","amt":"40","shares":"0.0451","price":"886.35","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_10","amt":"44","shares":"0.0006","price":"69,201.10","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_10","amt":"44","shares":"0.0006","price":"69,678.16","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Market","ymd":"2024_3_10","amt":"22","shares":"0.0306","price":"719.82","role":"UNSET"},{"tkr":"AMZN","type":"BUY","mode":"Market","ymd":"2024_3_10","amt":"11","shares":"0.0631","price":"174.21","role":"UNSET"},{"tkr":"ETH","type":"SELL","mode":"Market","ymd":"2024_3_11","amt":"22","shares":"0.0055","price":"4,033.99","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_11","amt":"177","shares":"0.0025","price":"71,777.43","role":"UNSET"},{"tkr":"COIN","type":"SELL","mode":"Market","ymd":"2024_3_11","amt":"43","shares":"0.1603","price":"270.01","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_11","amt":"50","shares":"0.3591","price":"139.24","role":"UNSET"},{"tkr":"AMZN","type":"BUY","mode":"Market","ymd":"2024_3_11","amt":"10","shares":"0.0579","price":"172.76","role":"UNSET"},{"tkr":"MICROSTRATEGY","type":"SELL","mode":"Market","ymd":"2024_3_11","amt":"22","shares":"0.0140","price":"1,574.80","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Market","ymd":"2024_3_11","amt":"33","shares":"0.0462","price":"714.07","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_11","amt":"55","shares":"0.0008","price":"72,469.50","role":"UNSET"},{"tkr":"LITECOIN","type":"BUY","mode":"Market","ymd":"2024_3_11","amt":"10","shares":"0.0991","price":"100.94","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_11","amt":"44","shares":"0.0006","price":"72,194.40","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_11","amt":"1000","shares":"0.0138","price":"72,271.57","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_12","amt":"44","shares":"0.0006","price":"71,735.04","role":"UNSET"},{"tkr":"AVAX","type":"SELL","mode":"Market","ymd":"2024_3_12","amt":"30","shares":"0.5310","price":"56.61","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_12","amt":"277","shares":"0.3037","price":"912.15","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_12","amt":"88","shares":"0.1193","price":"737.57","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Limit","ymd":"2024_3_12","amt":"88","shares":"0.0957","price":"919.34","role":"UNSET"},{"tkr":"AMZN","type":"BUY","mode":"Limit","ymd":"2024_3_12","amt":"1","shares":"5.6990","price":"175.47","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_12","amt":"44","shares":"0.0006","price":"71,898.01","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_12","amt":"108","shares":"0.1192","price":"909.98","role":"UNSET"},{"tkr":"AMZN","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"33","shares":"0.1865","price":"176.98","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"22","shares":"0.1553","price":"141.55","role":"UNSET"},{"tkr":"V","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"22","shares":"0.0771","price":"285.45","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"22","shares":"0.0003","price":"72,229.37","role":"UNSET"},{"tkr":"BROADCOM","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"102","shares":"0.0804","price":"1,262.59","role":"UNSET"},{"tkr":"ZILLOW CLASS C","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"180","shares":"3.1375","price":"57.44","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"33","shares":"0.0005","price":"72,436.75","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"33","shares":"0.0005","price":"72,842.04","role":"UNSET"},{"tkr":"ROBINHOOD MARKETS","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"20","shares":"1.1541","price":"17.32","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_13","amt":"22","shares":"0.0003","price":"73,028.61","role":"UNSET"},{"tkr":"ROBINHOOD MARKETS","type":"SELL","mode":"Limit","ymd":"2024_3_13","amt":"22","shares":"1.1797","price":"18.65","role":"UNSET"},{"tkr":"TESLA","type":"SELL","mode":"Limit","ymd":"2024_3_13","amt":"90","shares":"0.5355","price":"168.51","role":"UNSET"},{"tkr":"IBIT","type":"BUY","mode":"Market","ymd":"2024_3_13","amt":"666","shares":"16.0521","price":"41.49","role":"UNSET"},{"tkr":"GRAYSCALE BITCOIN TRUST (BTC)","type":"BUY","mode":"Market","ymd":"2024_3_13","amt":"222","shares":"3.4243","price":"64.83","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_14","amt":"111","shares":"0.0016","price":"70,363.11","role":"UNSET"},{"tkr":"AMZN","type":"SELL","mode":"Market","ymd":"2024_3_14","amt":"22","shares":"0.1231","price":"178.75","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_14","amt":"33","shares":"0.2291","price":"144.04","role":"UNSET"},{"tkr":"GRAYSCALE BITCOIN TRUST (BTC)","type":"BUY","mode":"Market","ymd":"2024_3_14","amt":"44","shares":"0.7059","price":"62.33","role":"UNSET"},{"tkr":"IBIT","type":"BUY","mode":"Market","ymd":"2024_3_14","amt":"44","shares":"1.1048","price":"39.83","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_14","amt":"88","shares":"0.1009","price":"872.37","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_14","amt":"111","shares":"0.0016","price":"69,559.22","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_14","amt":"111","shares":"0.0017","price":"66,664.57","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_14","amt":"111","shares":"0.0016","price":"67,731.18","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_14","amt":"111","shares":"0.0017","price":"65,537.99","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_14","amt":"111","shares":"0.0016","price":"68,672.97","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_15","amt":"66","shares":"0.0010","price":"67,985.26","role":"UNSET"},{"tkr":"AMZN","type":"BUY","mode":"Market","ymd":"2024_3_15","amt":"44","shares":"0.2520","price":"174.60","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Market","ymd":"2024_3_15","amt":"22","shares":"0.0303","price":"727.03","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_15","amt":"66","shares":"0.0010","price":"68,646.93","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_15","amt":"33","shares":"0.0369","price":"893.31","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_15","amt":"55","shares":"0.0008","price":"69,175.74","role":"UNSET"},{"tkr":"ROBINHOOD MARKETS","type":"BUY","mode":"Market","ymd":"2024_3_15","amt":"111","shares":"6.0856","price":"18.24","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_15","amt":"44","shares":"0.0006","price":"69,727.64","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_15","amt":"55","shares":"0.0008","price":"70,090.79","role":"UNSET"},{"tkr":"IBIT","type":"BUY","mode":"Limit","ymd":"2024_3_16","amt":"70","shares":"2.0000","price":"35.00","role":"UNSET"},{"tkr":"DOGE","type":"BUY","mode":"Limit","ymd":"2024_3_16","amt":"88","shares":"633.0900","price":"0.138974","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_16","amt":"118","shares":"0.0018","price":"65,039.37","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_16","amt":"400","shares":"0.0061","price":"65,161.75","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_17","amt":"111","shares":"0.0017","price":"65,548.92","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_17","amt":"111","shares":"0.0017","price":"64,440.59","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_17","amt":"111","shares":"0.0018","price":"63,327.76","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_17","amt":"111","shares":"0.0018","price":"61,108.66","role":"UNSET"},{"tkr":"AVAX","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"11","shares":"0.1740","price":"63.40","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Limit","ymd":"2024_3_18","amt":"55","shares":"0.3669","price":"149.93","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Limit","ymd":"2024_3_18","amt":"11","shares":"0.0151","price":"727.03","role":"UNSET"},{"tkr":"AMD","type":"SELL","mode":"Limit","ymd":"2024_3_18","amt":"111","shares":"0.5711","price":"194.36","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Limit","ymd":"2024_3_18","amt":"88","shares":"0.0974","price":"903.31","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"444","shares":"2.9785","price":"149.05","role":"UNSET"},{"tkr":"MDB","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"333","shares":"0.9408","price":"353.90","role":"UNSET"},{"tkr":"AMD","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"222","shares":"1.1639","price":"190.72","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"111","shares":"0.0017","price":"66,467.41","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"44","shares":"0.2967","price":"148.25","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"11","shares":"0.0150","price":"732.36","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"111","shares":"0.0017","price":"66,805.52","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_18","amt":"66","shares":"0.0010","price":"67,280.20","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_18","amt":"22","shares":"0.0003","price":"66,228.03","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_19","amt":"50","shares":"0.0008","price":"63,980.36","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_19","amt":"222","shares":"0.2485","price":"893.31","role":"UNSET"},{"tkr":"AMZN","type":"SELL","mode":"Market","ymd":"2024_3_19","amt":"11","shares":"0.0625","price":"175.97","role":"UNSET"},{"tkr":"AVAX","type":"BUY","mode":"Market","ymd":"2024_3_19","amt":"11","shares":"0.2010","price":"54.68","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_19","amt":"111","shares":"0.0018","price":"61,108.66","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_19","amt":"111","shares":"0.0018","price":"61,099.42","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"222","shares":"0.0035","price":"63,497.75","role":"UNSET"},{"tkr":"AMZN","type":"BUY","mode":"Market","ymd":"2024_3_20","amt":"11","shares":"0.0629","price":"174.86","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"111","shares":"0.0017","price":"63,761.64","role":"UNSET"},{"tkr":"V","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"11","shares":"0.0382","price":"288.03","role":"UNSET"},{"tkr":"AMZN","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"22","shares":"0.1248","price":"176.27","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"11","shares":"0.0149","price":"735.12","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"55","shares":"0.0009","price":"64,413.93","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"111","shares":"0.1240","price":"894.92","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"22","shares":"0.0297","price":"740.99","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"111","shares":"0.1235","price":"898.58","role":"UNSET"},{"tkr":"AMZN","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"22","shares":"0.1233","price":"178.40","role":"UNSET"},{"tkr":"MDB","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"55","shares":"0.1516","price":"362.65","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"88","shares":"0.0013","price":"65,247.22","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"55","shares":"0.0008","price":"65,845.58","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Limit","ymd":"2024_3_20","amt":"88","shares":"0.0970","price":"906.78","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"166","shares":"0.0024","price":"67,787.79","role":"UNSET"},{"tkr":"DOGE","type":"SELL","mode":"Market","ymd":"2024_3_20","amt":"90","shares":"599.8100","price":"0.15007","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_20","amt":"111","shares":"0.0017","price":"65,538.72","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_20","amt":"111","shares":"0.0017","price":"64,441.87","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_21","amt":"111","shares":"0.0017","price":"66,685.51","role":"UNSET"},{"tkr":"COST","type":"SELL","mode":"Market","ymd":"2024_3_21","amt":"33","shares":"0.0441","price":"748.44","role":"UNSET"},{"tkr":"ETH","type":"BUY","mode":"Market","ymd":"2024_3_21","amt":"55","shares":"0.0157","price":"3,510.41","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_21","amt":"22","shares":"0.0003","price":"65,473.13","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_21","amt":"22","shares":"0.0003","price":"65,675.16","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_22","amt":"88","shares":"0.0931","price":"944.60","role":"UNSET"},{"tkr":"GOOG","type":"SELL","mode":"Market","ymd":"2024_3_22","amt":"22","shares":"0.1452","price":"151.47","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Market","ymd":"2024_3_22","amt":"22","shares":"0.0297","price":"739.16","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_22","amt":"111","shares":"0.1178","price":"942.35","role":"UNSET"},{"tkr":"ETH","type":"SELL","mode":"Market","ymd":"2024_3_22","amt":"222","shares":"0.0665","price":"3,335.50","role":"UNSET"},{"tkr":"ETH","type":"SELL","mode":"Market","ymd":"2024_3_22","amt":"144","shares":"0.0432","price":"3,331.69","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_23","amt":"88","shares":"0.0013","price":"65,351.05","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Limit","ymd":"2024_3_23","amt":"66","shares":"0.0010","price":"64,438.92","role":"UNSET"},{"tkr":"IBIT","type":"BUY","mode":"Market","ymd":"2024_3_23","amt":"88","shares":"2.3019","price":"38.23","role":"UNSET"},{"tkr":"ROBINHOOD MARKETS","type":"BUY","mode":"Market","ymd":"2024_3_23","amt":"222","shares":"12.0652","price":"18.40","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_24","amt":"88","shares":"0.0013","price":"65,666.12","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_24","amt":"44","shares":"0.0007","price":"66,129.46","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_24","amt":"44","shares":"0.0007","price":"66,629.85","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_24","amt":"55","shares":"0.0008","price":"67,280.00","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_24","amt":"22","shares":"0.0003","price":"67,287.04","role":"UNSET"},{"tkr":"IBIT","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"66","shares":"1.6751","price":"39.39","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"222","shares":"0.2308","price":"961.87","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"111","shares":"0.0016","price":"68,827.70","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"111","shares":"0.0016","price":"69,503.03","role":"UNSET"},{"tkr":"NVDA","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"111","shares":"0.1156","price":"960.20","role":"UNSET"},{"tkr":"COIN","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"22","shares":"0.0780","price":"282.10","role":"UNSET"},{"tkr":"COST","type":"BUY","mode":"Market","ymd":"2024_3_25","amt":"44","shares":"0.0604","price":"728.48","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"44","shares":"0.0006","price":"70,000.44","role":"UNSET"},{"tkr":"IBIT","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"22","shares":"0.5453","price":"40.35","role":"UNSET"},{"tkr":"BTC","type":"SELL","mode":"Market","ymd":"2024_3_25","amt":"66","shares":"0.0009","price":"70,803.60","role":"UNSET"},{"tkr":"NVDA","type":"BUY","mode":"Limit","ymd":"2024_3_25","amt":"44","shares":"0.0463","price":"951.25","role":"UNSET"},{"tkr":"MDB","type":"BUY","mode":"Market","ymd":"2024_3_25","amt":"111","shares":"0.3122","price":"355.53","role":"UNSET"},{"tkr":"ROBINHOOD MARKETS","type":"BUY","mode":"Limit","ymd":"2024_3_27","amt":"200","shares":"10.0000","price":"20.00","role":"UNSET"},{"tkr":"TAIWAN SEMICONDUCTOR MANUFACTURING","type":"BUY","mode":"Market","ymd":"2024_3_27","amt":"100","shares":"0.7205","price":"138.80","role":"UNSET"},{"tkr":"BTC","type":"BUY","mode":"Market","ymd":"2024_3_27","amt":"77","shares":"0.0011","price":"69,341.48","role":"UNSET"}]
+
+/**********************************************************\
+ * END IMPORTZ section
+\**********************************************************/
+
 const generateCalculateBookzClick = ()=>{ // GENERATE ----------TOTALZ
    console.log('calculate books')
 /********************************************************\
@@ -7301,8 +7679,8 @@ const getLastATHClick = ()=>{ //loop all for last close.
       showErrorMSG('🛠️ connect api key'); 
    }
 }
-const getLastCryptoClick = ()=>{ //loop all for last close.
-   debugger;
+// const getLastCryptoClick = ()=>{ //loop all for last close.
+   // debugger;
    // let item,urls=[];
    // for(let i=0;i<ai_ledger.ticks.length;i++){
    //    // if(i>=1){continue;}//DEV_limiter stay below 20
@@ -7312,7 +7690,7 @@ const getLastCryptoClick = ()=>{ //loop all for last close.
    // }
    // getData_Quotes(urls)
    // showErrorMSG('🌼DATA UPDATED🌼') //todo error. need show message not error.
-}
+// }
 
 /**************************************************************\
  * MSGS : interface
@@ -7363,16 +7741,35 @@ const getLast_ATH_Month = async (quotes)=>{
          showErrorMSG('🛠️ api down')
    }     
 }
-const getData_Quotes = async (quotes)=>{
+const getData_Quotes = async (queries)=>{
    if(!stock_api_key){ showErrorMSG('🛠️ connect api'); return;}
-   if(!quotes.length){return;}
+   if(!queries.length){return;}
    try{
-      for(let i=0; i<quotes.length;i++){
-         fetch(quotes[i]).then((data)=>{
+      for(let i=0; i<queries.length;i++){
+         console.log('Query:',queries[i].tkr)
+         //CRYPTO QUERIES-----------------------------------
+         if(queries[i].tkr==='BTC' 
+            || queries[i].tkr==='ETH'  
+            || queries[i].tkr==='LTC'  
+            || queries[i].tkr==='AVAX' ){
+            console.log('Crypto Query:',queries[i].tkr)
+            //getCryptoPriceQuery(); //TODO
+            continue;
+         }
+         //END CRYPTO QUERIES-----------------------------------
+         fetch(queries[i].url).then((data)=>{
             if(data.ok){
                return data.json();
-            }
+            } else{ debugger; }
          }).then((tickData)=>{
+            if(tickData.Information && tickData.Information.indexOf('Thank you')===0){
+               showErrorMSG('🛠️ api daily limit');
+               debugger;
+               return;
+            }
+            if(!tickData || !tickData["Meta Data"] || !tickData["Meta Data"]["2. Symbol"] ){
+               debugger; //todo
+            }
             let responseTick = tickData["Meta Data"]["2. Symbol"];
             if(!responseTick){return;}
             let latestClose = tickData["Time Series (5min)"][Object.keys(tickData["Time Series (5min)"])[0]]["4. close"];
@@ -7388,7 +7785,8 @@ const getData_Quotes = async (quotes)=>{
             initEncode(); //RELOAD VIEW. 
 
          }).catch((error)=>{
-            showErrorMSG('🛠️ api daily limit')
+            debugger;
+            showErrorMSG('🛠️ bad request')
             console.log(error)
          })
       }
@@ -7396,7 +7794,6 @@ const getData_Quotes = async (quotes)=>{
          showErrorMSG('🛠️ api down')
    }           
 }
-
 
 const getData_Intraday = ()=>{
    if(!stock_api_key){return;}
@@ -7424,10 +7821,11 @@ const getData_Intraday = ()=>{
 
 function updateLatestTickPrice(responseTick,latestClose){ //loop ai_ledger, update price and latest label.
    let tickr='',item=null;
+   latestClose = parseFloat(latestClose).toFixed(0); //round num
    for(let i=0; i<ai_ledger.ticks.length;i++){
       tickr=ai_ledger.ticks[i];
       if(tickr.tick===responseTick){ //FOUND ticker record
-         ai_ledger.ticks[i].price = latestClose.split('.')[0];
+         ai_ledger.ticks[i].price = latestClose;
          ai_ledger.ticks[i].price_ymd = formatYMD();
          update_History_matrix(
             {tick:tickr.tick,
